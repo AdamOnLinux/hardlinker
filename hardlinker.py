@@ -81,4 +81,4 @@ if total_size == 0:
 else:
     total_size = size_format(total_size)
     total_files = len(image_sizes)
-    print("\nImages found: {}\nDuplicates removed: {}\nSpace removed: {}".format(total_files, total_duplicates, total_size))
+    print("\nImages found: {}\nDuplicates removed: {}\nSpace removed: {}\n".format(total_files, total_duplicates, total_size))
