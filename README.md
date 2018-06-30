@@ -1,19 +1,19 @@
-# Hardlink Duplicate Photos.
+# Hard Link Duplicate Photos.
 
 ### Problem: 
-You have a folder that has a ton of duplicate photos that are scattered all of the place!
+You have a folder that has a ton of duplicate photos that are scattered all over the place!
 
 ### Solution:
-I created a python script that will delete all your duplicate photos but leave the filenames and directories in place pointing to one copy of the photo, which is all you need.
+I created a python script that will delete all your duplicate photos but leave the filenames and directories as is, using the magic of hard links.
 
 ![Screenshot](https://i.imgur.com/zsjNMDJ.png)
 
 ### How does it work?
 1. Find all images that are the same size.
 
-2. Create a checksum of those images to tell which are duplicates regardless of the filename.
+2. Create a checksum of those images to find which are duplicates regardless of the filename.
 
-3. Delete all duplicates images and hardlink the duplicate files to the one original file.
+3. Delete all duplicate images and hardlink the duplicate files to the original file.
 
 ### FAQ
 
@@ -21,8 +21,8 @@ I created a python script that will delete all your duplicate photos but leave t
 
 2. What if I edit a photo and reupload? **The newly uploaded photo would be unique and not a duplicate.**
 
-3. Can I remove the "original file" and not break the hardlink files? **Yes, saying the original file is just an easier way to explain. It actually links to an inode on the disk where the data is stored for the photo.**
+3. Can I remove the "original file" or remove hard link files and not break things? **Yes, the "original file" is just an easier way to explain. It actually links to data on the disk where the photo is stored, not a file.**
 
-4. Can I run this multiple times? **Yes, Script will find all duplicates and hardlink to original file every time it runs.**
+4. Can I run this multiple times? **Yes, the script will find all duplicates and hardlink to original file every time it runs.**
 
-5. Is there any limits or things you would do differently with update? **I would use inotify utility to run a script on any new file or modifcation. That way we would have no duplicates in real time.**
+5. Anything you would do differently? **I would use the linux inotify utility to run a script when any new file or modifcation is detected. That would remove duplicates in real time.**
