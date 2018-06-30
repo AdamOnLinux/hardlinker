@@ -33,6 +33,7 @@ for root, dir, files in os.walk(dir, topdown=False):
        # check for image extenions       
        if full_path.lower().endswith(image_exts): 
            file_size = os.path.getsize(full_path)
+           total_files += 1
            # append file to array with size as key           
            if file_size in image_sizes: 
                image_sizes[file_size] = image_sizes[file_size] + "|" + full_path
@@ -80,5 +81,4 @@ if total_size == 0:
     print("No duplicate images found.")
 else:
     total_size = size_format(total_size)
-    total_files = len(image_sizes)
     print("\nImages found: {}\nDuplicates removed: {}\nSpace removed: {}\n".format(total_files, total_duplicates, total_size))
