@@ -6,6 +6,8 @@ You have a folder that has a ton of duplicate photos that are scattered all of t
 ### Solution:
 I created a python script that will delete all your duplicate photos but leave the filenames and directories in place pointing to one copy of the photo, which is all you need.
 
+![Screenshot](https://i.imgur.com/zsjNMDJ.png)
+
 ### How does it work?
 1. Find all images that are the same size.
 
